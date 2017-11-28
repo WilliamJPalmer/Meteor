@@ -1,0 +1,418 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c0\c0;}
+{\info
+{\author William Palmer}
+{\*\copyright William Palmer}}\margl1440\margr1440\vieww14740\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs32 \cf0 Meteor Steps
+\b0\fs24 \
+\
+
+\b\fs28 \ul Installing Meteor
+\b0\fs24 \ulnone \
+These steps are in Terminal\
+1. Meteor \'97version\
+	this will tell you the version of Meteor that is installed\
+2. curl https://install.meteor..com/ | sh\
+3. Enter password if/when prompted by terminal\
+\
+Meteor will be installed  in the location ~/.meteor\
+A launcher script will be written to /usr/local/bin/meteor\
+\
+$ meteor create ~/app_name\
+$ cd ~/app_name\
+$ meteor\
+$ meteor \'97help\
+docs.meteor.com\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \CocoaLigature0 Usage
+\b :
+\b0  meteor 
+\b [--
+\b0 release 
+\b <
+\b0 release
+\b >]
+\b0  
+\b [--
+\b0 help
+\b ]
+\b0  
+\b <
+\b0 built
+\b -
+\b0 in command
+\b >
+\b0  
+\b [
+\b0 args
+\b ]
+\b0 \
+       meteor help 
+\b <
+\b0 built
+\b -
+\b0 in command
+\b >
+\b0 \
+       meteor 
+\b [--
+\b0 version
+\b ]
+\b0  
+\b [--
+\b0 arch
+\b ]
+\b0 \
+ \'a0 \'a0 \'a0 meteor 
+\b <
+\b0 node 
+\b |
+\b0  npm 
+\b |
+\b0  other
+\b >
+\b0  
+\b [
+\b0 args
+\b ]
+\b0 \
+\
+\
+With no arguments
+\b ,
+\b0  
+\b '
+\b0 meteor
+\b '
+\b0  runs the project in the current\
+directory in local development mode
+\b .
+\b0  You can run it from the root\
+directory of the project or from any subdirectory
+\b .
+\b0 \
+\
+Use 
+\b '
+\b0 meteor create 
+\b <
+\b0 path
+\b >'
+\b0  to create a new Meteor project
+\b .
+\b0 \
+\
+Built
+\b -
+\b0 in Commands
+\b :
+\b0 \
+   
+\b run
+\b0                 		
+\b [
+\b0 default
+\b ]
+\b0  Run this project in local development mode
+\b .
+\b0 \
+   
+\b debug
+\b0               	Run the project
+\b ,
+\b0  but suspend the server process for debugging
+\b .
+\b0 \
+   
+\b create
+\b0              	Create a new project
+\b .
+\b0 \
+   
+\b update
+\b0              	Upgrade this project
+\b '
+\b0 s dependencies to their latest versions
+\b .
+\b0 \
+   
+\b add
+\b0                 	Add a package to this project
+\b .
+\b0 \
+   
+\b remove
+\b0              	Remove a package from this project
+\b .
+\b0 \
+   
+\b list
+\b0                		List the packages explicitly used by your project
+\b .
+\b0 \
+   
+\b add-platform
+\b0        	Add a platform to this project
+\b .
+\b0 \
+   
+\b remove-platform
+\b0   Remove a platform from this project
+\b .
+\b0 \
+   
+\b list-platforms
+\b0      	List the platforms added to your project
+\b .
+\b0 \
+   
+\b build
+\b0               	Build this project for all platforms
+\b .
+\b0 \
+   
+\b lint
+\b0                		Build this project and run the linters printing all errors and warnings
+\b .
+\b0 \
+   
+\b shell
+\b0               	Launch a Node REPL for interactively evaluating server
+\b -
+\b0 side code
+\b .
+\b0 \
+   
+\b mongo
+\b0               	Connect to the Mongo database for the specified site
+\b .
+\b0 \
+   
+\b reset
+\b0               	Reset the project state
+\b .
+\b0  Erases the local database
+\b .
+\b0 \
+   
+\b deploy
+\b0              	Deploy this project to Meteor
+\b .
+\b0 \
+   
+\b logs
+\b0                	Show logs for specified site
+\b .
+\b0 \
+   
+\b authorized
+\b0          	View or change authorized users and organizations for a site
+\b .
+\b0 \
+   
+\b login
+\b0               	Log in to your Meteor developer account
+\b .
+\b0 \
+   
+\b logout
+\b0             	Log out of your Meteor developer account
+\b .
+\b0 \
+   
+\b whoami
+\b0              	Prints the username of your Meteor developer account
+\b .
+\b0 \
+   
+\b test-packages
+\b0       	Test one or more packages
+\b .
+\b0 \
+   
+\b test
+\b0                		Test the application\
+   
+\b admin
+\b0              	Administrative commands
+\b .
+\b0 \
+   
+\b list-sites
+\b0          	List sites for which you are authorized
+\b .
+\b0 \
+   
+\b publish-release
+\b0     Publish a new meteor release to the package server
+\b .
+\b0 \
+   
+\b publish
+\b0             	Publish a new version of a package to the package server
+\b .
+\b0 \
+   
+\b publish-for-arch
+\b0    Builds an already
+\b -
+\b0 published package for a new platform
+\b .
+\b0 \
+   
+\b search
+\b0              	Search through the package server database
+\b .
+\b0 \
+   
+\b show
+\b0               	 Show detailed information about a release or package
+\b .
+\b0 \
+\
+See 
+\b '
+\b0 meteor help 
+\b <
+\b0 built
+\b -
+\b0 in command
+\b >'
+\b0  for details on a command
+\b .
+\b0 \
+\
+Other Commands
+\b :
+\b0 \
+\
+Meteor also bundles 
+\b '
+\b0 node
+\b '
+\b0  and 
+\b '
+\b0 npm
+\b '
+\b0  by default
+\b .
+\b0  If you use the\
+commands 
+\b '
+\b0 meteor node
+\b '
+\b0  or 
+\b '
+\b0 meteor npm
+\b ',
+\b0  you will be running\
+the same versions of 
+\b '
+\b0 node
+\b '
+\b0  and 
+\b '
+\b0 npm
+\b '
+\b0  that Meteor uses internally
+\b .
+\b0 \
+\
+Other commands can be installed in the same directory as 
+\b '
+\b0 node
+\b '
+\b0  and\
+
+\b '
+\b0 npm
+\b '
+\b0  and used in all apps using the same version of Meteor
+\b .
+\b0  The\
+easiest way to install such commands is to add a global npm package\
+
+\b ('
+\b0 yarn
+\b ',
+\b0  
+\b '
+\b0 jsdoc
+\b ',
+\b0  etc
+\b .)
+\b0  that provides the command
+\b :
+\b0 \
+\
+    meteor npm install 
+\b --
+\b0 global 
+\b <
+\b0 package name
+\b >
+\b0 \
+\
+Any executable program
+\b (
+\b0 s
+\b )
+\b0  added by this command can be invoked just\
+like 
+\b '
+\b0 meteor node
+\b '
+\b0  or 
+\b '
+\b0 meteor npm
+\b '
+\b0  
+\b (
+\b0 for example
+\b ,
+\b0  
+\b '
+\b0 meteor yarn
+\b '):
+\b0 \
+\
+    meteor 
+\b <
+\b0 other command
+\b >
+\b0  
+\b [
+\b0 args
+\b ]
+\b0 \
+\
+Note that you may need to reinstall these commands after updating to\
+a different version of Meteor
+\b .\
+\
+
+\b0 \cf0 \CocoaLigature1 Starting environment:\
+1. 
+\b meteor npm install \'97save babel-runtime
+\b0 \
+	If this is not run before meteor run \'97release 1.4.2.1, an error will occur\
+2. 
+\b meteor run \'97release 1.4.2.1
+\b0 \
+3. 
+\b \'97save
+\b0  after 
+\b meteor npm install react@5.3.2 react-dom5.3.2
+\b0  will update the 
+\b packages.json
+\b0  \
+	file to include versions of react and react-dom. Using 
+\b meteor npm install
+\b0  will automatically\
+	update the node_packages folder in the project.\
+}
