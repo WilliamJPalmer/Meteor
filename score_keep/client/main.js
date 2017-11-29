@@ -21,11 +21,8 @@ import {Meteor} from 'meteor/meteor';
 import {Tracker} from 'meteor/tracker';
 
 import {Players} from './../imports/api/players';
-import TitleBar from './../imports/ui/TitleBar';
-import AddPlayer from './../imports/ui/AddPlayer';
-// import Player from './../imports/ui/Player';
-//above line is imported via PlayerList so no need to import here.
-import PlayerList from './../imports/ui/PlayerList';
+import App from './../imports/ui/App';
+
 
 
 //Meteor.startup(function(){
@@ -35,15 +32,12 @@ Meteor.startup(() => { //above line written as ES6 arrow function
     console.log('Players List from clients main.js', Players.find().fetch());
     let players = Players.find().fetch();
     let title = "Score Keeper";
-    let subtitle = "Created by Me"
-    let name = "William";
-    let jsx = (
-      <div>
-        <TitleBar title={title} subtitle={subtitle}/>
-        <PlayerList players={players}/>
-        <AddPlayer/>
-      </div>
-    );
-    ReactDOM.render(jsx, document.getElementById("app"));
+    //ReactDOM.render(jsx, document.getElementById("app"));
+    /*
+    the jsx argument in the line above is replaced with the custom <App/> tag as
+    that component will contain all of the jsx for displaying the information.
+    The props for Title and Players can be placed in this tag as well
+    */
+    ReactDOM.render(<App title={title} players={players}/>, document.getElementById("app"));
   });
 });
