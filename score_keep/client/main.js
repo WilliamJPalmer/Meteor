@@ -30,7 +30,8 @@ Meteor.startup(() => { //above line written as ES6 arrow function
   //Tracker.autorun(function(){
   Tracker.autorun(() => { //above line written as ES6 arrow function
     console.log('Players List from clients main.js', Players.find().fetch());
-    let players = Players.find().fetch();
+    let players = Players.find({},{sort:{score: -1, name: 1}}).fetch();
+    //aove line will sort users by highest score and if more than one have same score, by name A - Z
     let title = "Score Keeper";
     //ReactDOM.render(jsx, document.getElementById("app"));
     /*
