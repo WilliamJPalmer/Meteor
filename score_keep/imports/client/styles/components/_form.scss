@@ -1,0 +1,9 @@
+.form {
+  display: flex;
+}
+
+.form__input{
+  border: 1px solid #e8e8e8;
+  flex-grow: 1;//makes the input filed fill the space between the field and button
+  padding: 0 1.3rem;
+}

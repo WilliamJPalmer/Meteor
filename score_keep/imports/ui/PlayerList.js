@@ -9,7 +9,11 @@ location path does not include ../imports/ui/
 export default class PlayerList extends React.Component {
   renderPlayers(){
     if (this.props.players.length === 0) {
-      return <p>Add first player to start</p>;
+      return (
+        <div className='item'>
+          <p className="item__message">Add first player to start</p>
+        </div>
+      )
     } else {
       return this.props.players.map((player) => {
         return <Player key={player._id} player={player}/>;

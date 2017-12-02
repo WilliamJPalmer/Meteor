@@ -1,0 +1,36 @@
+.button {
+  background-color: #ffffff;
+  border: 1px solid #555555;
+  color:#555555;
+  cursor: pointer;
+  font-weight:600;
+  line-height: 1;
+  margin-left: 1.3rem;
+  outline: none;
+  padding: 1.3rem;
+  transition: background .5s ease, transform .2s;
+  /*transition allows for small changes. background targets the background color
+  of the button. It eases in over .2 seconds. Use a comma to separate multiple
+  items for transition.
+  */
+
+  /* pseudo-selectors allow to target specific elements in the transition
+  use the & symbol to added to the current selector, in this case, .button
+  &:hover, &:focus will change the color of the button background. &:active
+  will change the background color of the button and scale it 1.1 times when clicked*/
+  &:hover, &:focus{
+    background: #e8e8e8;
+  }
+
+  &:active {
+    background: #bbbbbb;
+    transform: scale(1.2);
+  }
+}
+
+.button--round{
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+
+}

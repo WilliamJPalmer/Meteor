@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%
+  /* this sets the font to 62.5% of the default size of the font, usually 16pts.
+    16 * .625 = 10, so this sets the default size to 10pts which make the
+    REMs for targeted elements easier to compute.
+  */
+}
+body {
+  background: #f2f2f2;
+  color: #555555;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+}
+
+input, button, select{
+  font-size: 1.3rem;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 2.4rem; /*rem root em. These are relative whereas pixels are absolute.
+  REMs are good for proper scaling. Setting the font-size to 2.4rem, sets the font-size to 24pts.*/
+}
+
+@import './components/titleBar';
+@import './components/wrapper';
+@import './components/item';
+@import './components/button';
+@import './components/form';
+@import './components/player';

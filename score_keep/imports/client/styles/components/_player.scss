@@ -1,0 +1,21 @@
+.player {
+  align-items: center; //centers all items veritcally
+  display: flex;
+  justify-content: space-between;
+}
+
+.player__name{
+  font-weight: 400;
+  font-size: 1.3rem8
+}
+
+.player__stats{
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.player__actions{
+  flex-shrink: 0; //prevents the three buttons from stacking incase of a long name
+
+}

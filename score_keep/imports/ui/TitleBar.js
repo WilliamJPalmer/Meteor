@@ -7,7 +7,7 @@ export default allows the client/main.js file to use the component
 export default class TitleBar extends React.Component{
   renderSubtitle(){
     if (this.props.subtitle){
-      return <h3>{this.props.subtitle}</h3>;
+      return <h3 className="title-bar__subtitle">{this.props.subtitle}</h3>;
     }
   }
   render(){

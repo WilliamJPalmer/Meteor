@@ -1,32 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+/*
+when importing the other related stylesheets, do not have to include
+the _ or the .scss/ When importing files, place the import at the bottom
+of the file, after all of the styling has been defined for that file.
+*/
 
-html {
-  font-size: 62.5%
-  /* this sets the font to 62.5% of the default size of the font, usually 16pts.
-    16 * .625 = 10, so this sets the default size to 10pts which make the
-    REMs for targeted elements easier to compute.
-  */
-}
-body {
-  color: #555555;
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-h1 {
-  font-weight: 300;
-  font-size: 2.4rem; /*rem root em. These are relative whereas pixels are absolute.
-  REMs are good for proper scaling. Setting the font-size to 2.4rem, sets the font-size to 24pts.*/
-}
-.title-bar {
-  background: #e35557;
-  color: #ffffff;
-}
-
-.wrapper {
-  margin: 0 auto;
-  max-width: 50rem;
-  padding: 1.5rem;
-}
+/*
+This will will not be used for any stlying. It is used basically as an
+initializer for the partials that will hold all of the style information, these
+are the fiels that will begin with and underscore and reside in other folders.
+*/
+@import '../imports/client/styles/main'
