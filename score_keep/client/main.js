@@ -20,7 +20,7 @@ import ReactDOM from 'react-dom';
 import {Meteor} from 'meteor/meteor';
 import {Tracker} from 'meteor/tracker';
 
-import {Players} from './../imports/api/players';
+import {Players, calculatePlayerPositions} from './../imports/api/players';
 import App from './../imports/ui/App';
 
 
@@ -32,6 +32,7 @@ Meteor.startup(() => { //above line written as ES6 arrow function
     console.log('Players List from clients main.js', Players.find().fetch());
     let players = Players.find({},{sort:{score: -1, name: 1}}).fetch();
     //aove line will sort users by highest score and if more than one have same score, by name A - Z
+    let positionedPlayers = calculatePlayerPositions(players);
     let title = "Score Keeper";
     //ReactDOM.render(jsx, document.getElementById("app"));
     /*
@@ -39,6 +40,6 @@ Meteor.startup(() => { //above line written as ES6 arrow function
     that component will contain all of the jsx for displaying the information.
     The props for Title and Players can be placed in this tag as well
     */
-    ReactDOM.render(<App title={title} players={players}/>, document.getElementById("app"));
+    ReactDOM.render(<App title={title} players={positionedPlayers}/>, document.getElementById("app"));
   });
 });

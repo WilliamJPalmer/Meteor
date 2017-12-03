@@ -1,5 +1,6 @@
 import React from 'react';
-import Player from './Player'
+import Player from './Player';
+import FlipMove from 'react-flip-move'
 /*can remove the import Player from the client/main.js because
 it is imported here and client/main.js imports PlayerList
 Since Player.js and PlayerList.js are in the same folder, the
@@ -23,7 +24,9 @@ export default class PlayerList extends React.Component {
   render(){
     return(
       <div>
-        {this.renderPlayers()}
+        <FlipMove easing="cubic-bezier(0, -0.2, 0.5, 1.5)" maintainContainerHeight={true}>
+          {this.renderPlayers()}
+        </FlipMove>
       </div>
     );
   }
