@@ -1,12 +1,13 @@
 //variables for color. Must be prefaced wiht a $ when defining and using
 $green: #ABF4CA; //#e4ede0
 $green-alt: darken($green, 25%);
-
 $blue: #B7D8ED; //#dfe7ed
 $blue-alt: darken($blue, 25%);
-
 $red: #FF7FA1;//#eddfdf
 $red-alt: darken($red, 25%);
+$gold: #F2CF71;
+$gold-alt: darken($gold, 25%);
+
 
 * {
   margin: 0;

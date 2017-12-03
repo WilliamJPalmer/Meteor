@@ -415,4 +415,103 @@ a different version of Meteor
 \b meteor npm install
 \b0  will automatically\
 	update the node_packages folder in the project.\
+\
+---------------------------------------------------------------------------------------------------------------\
+
+\b\fs28 Object Spread Operator
+\b0\fs24  and 
+\b\fs28 Object Property Shorthand
+\b0\fs24 \
+\
+
+\b \ul Object Spread Operator
+\b0 \ulnone  lets you copy properties from one object and spread them\
+to another object.\
+\
+
+\b let user = \{\
+  name:'William',\
+  location: 'Savannah',\
+  age: 15\
+\};
+\b0 \
+\
+
+\b let person = \{\
+  ...user,
+\b0  \
+  the object spread operator is denoted with the ... and the object name\
+  the ...user above will include the properties of the user object, name and location\
+  in the person object. In the console.log(person), the name and location property\
+  will be returned along with the age property for the person object. If both objects\
+  have the same property, the one last in line order will be used.\
+
+\b   age: 45
+\b0 \
+
+\b \};
+\b0 \
+
+\b console.log(person);
+\b0 \
+\
+\
+
+\b \ul Object Property Shorthand
+\b0 \ulnone  is a way to define object properties when you have a\
+variable of the same name\
+\
+
+\b let bike = 'Mike';\
+let stuff = \{
+\b0 \
+  //bike: bike, // The Object Property Shorthand lets this line be written with just bike,\
+  //instead of writing bike: bike\
+ 
+\b  bike,
+\b0 \
+  
+\b laptop: 'Mac',\
+  gun: 'Beretta 9mm'\
+\};
+\b0 \
+// console.log(stuff);\
+\
+
+\b let house = \{\
+  bedrooms: 2,\
+  bathrooms: 1.5\
+\};\
+let yearBuilt =  1995;\
+\
+let myHouse = \{\
+  ...house,  
+\i\b0 Object Spread Operator. Includes properties of house in myHouse
+\i0\b \
+  bedrooms:3,  
+\i\b0 overwrites the bedrooms value in house object.
+\i0\b \
+  yearBuilt,  
+\i\b0 Object Property Shorthand
+\i0\b \
+  flooring: 'Carpet'\
+\}\
+console.log(myHouse);\
+\
+
+\b0 Do not have to create variable myHouse. The following is acceptable and will result in the same object returned\
+
+\b console.log(\{\
+  \'85house,\
+  bedrooms:3,\
+  yearBuilt,\
+  flooring:\'92Carpet\'94,\
+\})\
+\
+
+\b0 Object returned will be:\
+
+\b \{ bedrooms:3, bathrooms: 1.5, yearBuilt: 1995, flooring: \'91Carpet \}
+\b0 \
+\
 }
