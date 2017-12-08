@@ -15,6 +15,7 @@ export default class AddPlayer extends React.Component{
 
     event.preventDefault();//this prevents a full page refresh when the form in the HTML is submitted
 
+    debugger;//built in feature 
     if (playerName){// this means if the input field is not empty.
       event.target.playerName.value = '';//resets input field to blank
       Players.insert({
