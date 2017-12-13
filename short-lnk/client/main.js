@@ -12,11 +12,25 @@ import Login from '../imports/ui/Login';
 
 const unauthenticatedPages = ['/', '/signup'];// pages that don't need to be logged in to see
 const authenticatedPages = ['/links'];//avaialble only is logged in
+const onEnterPublicPage = () =>{
+  if (Meteor.userId()){
+    //console.log("onEnterPublicPage method");
+    browserHistory.push('/links');
+    //console.log(browserHistory.getCurrentLocation().pathname);
+  }
+};
+const onEnterPrivatePage = () => {
+  if (!Meteor.userId()){
+    //console.log("onEnterPrivatePage method");
+    browserHistory.push('/');
+    //console.log(browserHistory.getCurrentLocation().pathname);
+  }
+};
 const routes = (
   <Router history={browserHistory}>
-    <Route path='/' component={Login}/>
-    <Route path='/signup' component={Signup}/>
-    <Route path='/links' component={Link}/>
+    <Route path='/' component={Login} onEnter={onEnterPublicPage}/>
+    <Route path='/signup' component={Signup} onEnter={onEnterPublicPage}/>
+    <Route path='/links' component={Link} onEnter={onEnterPrivatePage}/>
     <Route path='*' component={NotFound}/>
   </Router>
 );
