@@ -14,15 +14,23 @@ const unauthenticatedPages = ['/', '/signup'];// pages that don't need to be log
 const authenticatedPages = ['/links'];//avaialble only is logged in
 const onEnterPublicPage = () =>{
   if (Meteor.userId()){
-    //console.log("onEnterPublicPage method");
-    browserHistory.push('/links');
-    //console.log(browserHistory.getCurrentLocation().pathname);
+    //browserHistory.push('/links');
+    /* .push adds the pathname to the browserHistory. This means that if the browser's
+    back button is clicked, the page will go to the page that pushed to the /links page.
+    Using .replace rather than .push will overwrite the current page name with the
+    redirected page name.
+    the .push path from page to page(if user is logged in) and using browser back button
+    blankpage -> google.com -> localhost:3000 -.push-> localhost:3000/links <-back- localhost:3000 -.push-> localhost:3000/links
+
+    the .replace path from page to page(if user is logged in) and using browser back button
+    bankpage -> google.com -> localhost:3000 -.replace-> localhost:3000/links <-back- google.com*/
+    browserHistory.replace('/links');//.replace instead of .push
   }
 };
 const onEnterPrivatePage = () => {
   if (!Meteor.userId()){
     //console.log("onEnterPrivatePage method");
-    browserHistory.push('/');
+    browserHistory.replace('/');//.replace instead of .push
     //console.log(browserHistory.getCurrentLocation().pathname);
   }
 };
@@ -43,9 +51,11 @@ Tracker.autorun(() => {
   const isAuthenticatedPage = authenticatedPages.includes(pathname);//checks to see if the current page is in the authenticatedPages array
 
   if (isAuthenticated && isUnauthenticatedPage){
-    browserHistory.push('/links')// if user is logged in and navigates to an unauthenticate page, goes to links page
+    browserHistory.replace('/links')// if user is logged in and navigates to an unauthenticate page, goes to links page
+    //.replace instead of .push
   }else if (!isAuthenticated && isAuthenticatedPage){
-    browserHistory.push('/')// if user is NOT logged in and navigates to an authenticate page, goes to login page
+    browserHistory.replace('/')// if user is NOT logged in and navigates to an authenticate page, goes to login page
+    //.replace instead of .push
   };
 });
 
