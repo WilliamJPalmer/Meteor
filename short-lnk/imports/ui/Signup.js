@@ -15,6 +15,16 @@ export default class Signup extends React.Component {
     event.preventDefault();//prevents a full page refresh
     let email = this.refs.email.value.trim();
     let password = this.refs.password.value.trim();
+
+    if (password.length < 8) {
+      return this.setState({ error: 'Password must be at least 8 characters'})
+    }
+    /*Since the password is hashed with bcrypt, can't validate the password length
+    in the client/main.js. We can validate the length here in the onSubmit function
+    to make sure that the password meets a length requirement. That is done by the
+    if (password.length < 9) statement above.
+    */
+
     Accounts.createUser({email,password}, (err) => {
       //console.log('signUP callback', err);
       if (err) {
