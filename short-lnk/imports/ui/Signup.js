@@ -45,7 +45,7 @@ export default class Signup extends React.Component {
             the message from onSubmit will be printed. If error is false, undefined
             will be returned and nothing will be rendered to the screen */}
           <form onSubmit={this.onSubmit.bind(this)}>
-            <input type='email' ref="email" name='email' placeholder='Email'/>
+            <input  ref="email" name='email' placeholder='Email'/>
             <input type='password' ref="password" name='password' placeholder='Password'/>
             <button>Create Account</button>
           </form>

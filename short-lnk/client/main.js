@@ -2,8 +2,9 @@ import 'babel-polyfill';
 import {Meteor} from 'meteor/meteor';
 import ReactDOM from 'react-dom';
 import {Tracker} from 'meteor/tracker';
-import { routes, onAuthChange } from '../imports/routes/routes'
 
+import { routes, onAuthChange } from '../imports/routes/routes';
+import '../imports/startup/simple-schema-configuration';
 
 
 Tracker.autorun(() => {
@@ -11,6 +12,7 @@ Tracker.autorun(() => {
   // a single ! with flip the value. two !! will return true or false.
   onAuthChange(isAuthenticated);
 });
+
 
 Meteor.startup(() => {
   ReactDOM.render(routes, document.getElementById('app'));
