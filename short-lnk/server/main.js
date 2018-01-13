@@ -1,5 +1,8 @@
 import 'babel-polyfill';
 import { Meteor } from 'meteor/meteor';
+import { WebApp } from 'meteor/webapp';//this gives access to the webapp behind the scenes
+//that serves the content. Allows allows to attach middleware.
+
 import '../imports/api/links';
 import '../imports/startup/simple-schema-configuration';
 
@@ -10,12 +13,20 @@ so no need for the from portion*/
 
 Meteor.startup(() => {
   // code to run on server at startup
-  /* to call the Methods for Metoer.methods, use Meteor.call. This takes two arguments.
-  First is the name of the method defined in the Meteor.methods arguments
-  Second is a callback that is a function. This function takes two arguments, the error, err,
-  and the result, res. If there is an error, err will be populated. If no error, res will be populated.
-  */
-  // Meteor.call('addNumbers', 67, 7, (err, res) => {
-  //   console.log('Add Numbers', 'ERR = '+err, 'RES = '+res);
-  // })
+  WebApp.connectHandlers.use((req, res, next) => {//connect in connectHandlers refers to the connect library.
+    // .use has three areguments; req, the request made, res, the response sent and the most important is next.
+    //next is a function that gets called  when the middleware is done, it calls next and te application keeps running.
+    console.log("This is from middleware.");
+    console.log(req.url + "req.url log", req.method, req.headers, req.query);
+    //req.url = url of application
+    //req.method = GET or POST method
+    //req.headers = shows information like cookies, encoding, languages etc
+    //req.query would be populated with key:value pairs if query was run.
+    // This need to explore in the res object include, HTTP status code, HTTP Headers, HTTP body and then need to End HTTP request
+    // res.statusCode = 404;//status code can be any code. www.httpstatuses.com lists all.
+    // res.setHeader('my-customerHeader', 'Set the header');//two arguments, name of the header trying to set, Second is value
+    // res.write('<h1>This is res.write</h1>');//this will override all programmed elements on page.
+    // res.end();//this will prevent anything from displaying on page as it terminates the response to the HTTP request.
+    next();
+  });
 });
