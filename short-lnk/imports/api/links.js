@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema from 'simpl-schema';
 import { Mongo } from 'meteor/mongo';
+import shortid from 'shortid';
 
 export const Links = new Mongo.Collection('links');
 
@@ -38,6 +39,8 @@ Meteor.methods({
 
 
     Links.insert({
+      _id: shortid.generate(),//this will create a shorter id instead of the the long Meteor id that is automatically generate.
+      //This can be used due to the import shortid at the top and the npm install shortid run in the terminal.
       url,//this is the argument that is in the 'links.insert' method.
       userId: this.userId
     })
