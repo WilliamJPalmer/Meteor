@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import {Tracker} from 'meteor/tracker';
 
 import { Links } from '../api/links';
+import LinksListItem from './LinksListItem';//component that will be used to render links.
 
 export default class LinksList extends React.Component{
   //the LinksList will be hte component that will be used to display all of the links
@@ -32,10 +33,13 @@ export default class LinksList extends React.Component{
 
   renderLinksListItems(){
     return this.state.links.map((link) => {
-      return (
-        <p key={link._id}>{link.url}</p>
-      )
-    })
+      const shortUrl = Meteor.absoluteUrl(link._id);//this will get the main URL, something like
+      // http://localhost:3000/ and add the id of the link after the /
+      return <LinksListItem key={link._id} shortUrl = {shortUrl} {...link}/>;
+      // new LinksListComponent being called with the props of shortUrl and using
+        //the spread, {...}, to include all the key/value pairs for the the link object as props
+
+      });
   }
   render (){
     return (
