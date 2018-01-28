@@ -4,6 +4,7 @@ import { Links } from '../api/links';
 import LinksList from './LinksList';
 import PrivateHeader from './PrivateHeader';
 import AddLink from './AddLink';
+import HiddenFilter from './HiddenFilter';
 
 /*Stateless Functional Component below. Don't have to define the class or the render.
 the function handles the render on its own. SFC's are good for Presentational Components that
@@ -12,6 +13,7 @@ export default () => {
   return (
     <div>
       <PrivateHeader title="Your Links"/>
+      <HiddenFilter/>
       <LinksList/>
       <AddLink/>
     </div>

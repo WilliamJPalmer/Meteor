@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import {Tracker} from 'meteor/tracker';
+import { Session } from 'meteor/session';//allows use of the Meteor Session Package.
 
 import { Links } from '../api/links';
 import LinksListItem from './LinksListItem';//component that will be used to render links.
@@ -18,7 +19,9 @@ export default class LinksList extends React.Component{
     console.log("componentDidMount LinksList");
     this.linksTracker = Tracker.autorun(()=> {
       Meteor.subscribe('links publication');//Must be same string as the argument in  Meteor.publish method, imports/api/links.js
-      const links = Links.find().fetch();
+      const links = Links.find({
+        visible: Session.get('showVisible')// showVisible is defined in the client/main.js under the client/main,.js
+      }).fetch();
       this.setState({ links });
     });
     /* The above Tracker.autorun has been cut from the client/main.js. It will still

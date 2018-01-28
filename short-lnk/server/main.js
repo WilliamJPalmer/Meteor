@@ -2,6 +2,7 @@ import 'babel-polyfill';
 import { Meteor } from 'meteor/meteor';
 import { WebApp } from 'meteor/webapp';//this gives access to the webapp behind the scenes
 //that serves the content. Allows allows to attach middleware.
+import moment from 'moment';//this is for dealing with time and time display.
 
 import { Links } from '../imports/api/links';
 import '../imports/startup/simple-schema-configuration';
@@ -13,6 +14,12 @@ so no need for the from portion*/
 
 Meteor.startup(() => {
   // code to run on server at startup
+  let now = new Date();
+  console.log(now);
+
+  let momentNow = moment(0);
+  console.log(momentNow.fromNow());// various formats found here http://momentjs.com/docs/#/displaying/
+
   WebApp.connectHandlers.use((req, res, next) => {
     const _id = req.url.slice(1);
     const link = Links.findOne({ _id: _id });
@@ -21,6 +28,9 @@ Meteor.startup(() => {
       res.statusCode = 302;
       res.setHeader('Location', link.url);
       res.end();
+      Meteor.call('links.trackVisit', _id)// This tracks the request for the redirect.
+      // this will be used for the counting how many times a link was visited and the last time it was visited.
+      // the _id is the id for the link.
     } else {
       next();
     }

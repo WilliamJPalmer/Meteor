@@ -2,6 +2,7 @@ import 'babel-polyfill';
 import {Meteor} from 'meteor/meteor';
 import ReactDOM from 'react-dom';
 import {Tracker} from 'meteor/tracker';
+import { Session } from 'meteor/session';
 
 import { routes, onAuthChange } from '../imports/routes/routes';
 import '../imports/startup/simple-schema-configuration';
@@ -13,7 +14,10 @@ Tracker.autorun(() => {
   onAuthChange(isAuthenticated);
 });
 
+Session.set()
+
 
 Meteor.startup(() => {
+  Session.set('showVisible', true);//this will show all the links that have not been hidden
   ReactDOM.render(routes, document.getElementById('app'));
 });
