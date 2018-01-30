@@ -37,20 +37,23 @@ export default class Signup extends React.Component {
 
   render() {
     return (
-        <div>
-          <h3>Sign Up for Short Lnk</h3>
+        <div className="boxed-view">
+          <div className="boxed-view__box">
+            <h1>Sign Up for Short Lnk</h1>
 
-          {this.state.error ? <p>{this.state.error}</p> : undefined}
-          {/* the above line looks to see if there is an error, if error is true,
-            the message from onSubmit will be printed. If error is false, undefined
-            will be returned and nothing will be rendered to the screen */}
-          <form onSubmit={this.onSubmit.bind(this)}>
-            <input  ref="email" name='email' placeholder='Email'/>
-            <input type='password' ref="password" name='password' placeholder='Password'/>
-            <button>Create Account</button>
-          </form>
+            {this.state.error ? <p>{this.state.error}</p> : undefined}
+            {/* the above line looks to see if there is an error, if error is true,
+              the message from onSubmit will be printed. If error is false, undefined
+              will be returned and nothing will be rendered to the screen */}
+            <form className="boxed-view__form" onSubmit={this.onSubmit.bind(this)}>
+              <input  type="email" ref="email" name='email' placeholder='Email'/>
+              <input type='password' ref="password" name='password' placeholder='Password'/>
+              <button className="button">Create Account</button>
+            </form>
 
-          <Link to='/'>Already have an account?</Link>
+            <Link to='/'>Already have an account?</Link>
+          </div>
+
 
         </div>
     );

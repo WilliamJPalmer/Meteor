@@ -1,0 +1,12 @@
+/*All component scss files will need to be imported in this file. If they
+are not imported, any styling will not show up.
+the variables file needs ot be imported first since other files may be using
+variables in defining styles. */
+@import './variables';
+@import './base';
+@import './components/boxed-view';
+@import './components/button';
+@import './components/title-bar';
+@import './components/page-content';
+@import './components/checkbox';
+@import './components/item';

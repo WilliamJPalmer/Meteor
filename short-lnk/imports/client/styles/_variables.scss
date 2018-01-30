@@ -1,0 +1,45 @@
+/* This file will contain the variables and values for elements that can be
+changed based on personal taste. This will contain variables for all aspects
+of the application. This is being imported by the imports/client/styles/_main.scss file
+as are all of the client/styles/components/ files, so will not need to import it anywhere else.*/
+
+// Colors
+$brand-primary: #0F2F96;//#5B4681;
+$grey: #dfdfdf;
+$light-grey: #f9f9f9;
+$dark-grey: #666666;
+
+
+// Spacing
+$space: 1.2rem;
+$site-max-width: 50rem;
+
+// Font sizes
+$base-font-size: 1.3rem;
+$large-font-size: 1.8rem;
+
+// Form inputs
+$input-border-color: $grey;
+$input-spacing: 1rem;
+$input-spacing-tight: .5rem;
+
+// Boxed view
+$boxed-view-overlay-bg: $grey;
+$boxed-view-bg: white;
+
+//Button
+$button-bg: $brand-primary;
+$button-text-color: white;
+$button-pill-color: $brand-primary;
+$button-secondary-bg: $light-grey;
+$button-secondary-color: $dark-grey;
+$button-secondary-border-color: $grey;
+
+// Title-Bar
+$title-bar-bg: $brand-primary;
+$title-bar-text-color: white;
+
+//Item
+$item-bg: $light-grey;
+$item-border: darken($item-bg, 8%);
+$item-text-color: $dark-grey;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import {Tracker} from 'meteor/tracker';
 import { Session } from 'meteor/session';//allows use of the Meteor Session Package.
+import FlipMove from 'react-flip-move';
 
 import { Links } from '../api/links';
 import LinksListItem from './LinksListItem';//component that will be used to render links.
@@ -35,6 +36,14 @@ export default class LinksList extends React.Component{
   }
 
   renderLinksListItems(){
+    if (this.state.links.length === 0) {
+      return (
+        <div className='item'>
+          <p className="item__status-message">List is Empty.</p>
+        </div>
+      )
+    }
+
     return this.state.links.map((link) => {
       const shortUrl = Meteor.absoluteUrl(link._id);//this will get the main URL, something like
       // http://localhost:3000/ and add the id of the link after the /
@@ -47,9 +56,10 @@ export default class LinksList extends React.Component{
   render (){
     return (
       <div>
-        <p>Links List</p>
         <div>
-          {this.renderLinksListItems()}
+          <FlipMove maintainContainerHeight={true}>
+            {this.renderLinksListItems()}
+          </FlipMove>
         </div>
       </div>
     );

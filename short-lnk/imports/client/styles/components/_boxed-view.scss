@@ -1,0 +1,33 @@
+.boxed-view {
+  align-items: center;// aligns vertically
+  background: $boxed-view-overlay-bg;
+  display: flex;
+  justify-content: center;//aligns horizontally
+  height: 100vh;
+  width: 100vw;
+  /* vh and vw stand for viewport height and viewport width. Viewport is the amount of the screen
+  that is visible. Setting to 100 will be 100% of the visible screen. When the screen is resized,
+  the background will adjust*/
+}
+
+.boxed-view--modal{//this is for the AddLink modal
+  background: fade-out($boxed-view-overlay-bg, .2); // this sets the overlay grey color to a transparent value, 0-1
+  // hence the .2 value.
+  position: fixed;//this will position an item relative to browser's viewport.
+  top: 0;//setting the t,l,r,b to 0 will make sure that the modal covers the entire screen
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.boxed-view__box{
+  background-color: $boxed-view-bg;
+  padding: 2.4rem;
+  text-align: center;
+  width: 24rem;
+}
+
+.boxed-view__form {
+  display: flex;//default flex direction is left to right, row
+  flex-direction: column;//choices are cloumn, cloumn reverse, row and row reverse.
+}

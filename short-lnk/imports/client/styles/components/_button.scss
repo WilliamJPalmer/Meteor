@@ -1,0 +1,41 @@
+.button {
+  background-color: $button-bg;;
+  border: none;
+  color: $button-text-color;
+  cursor: pointer;
+  font-size: $base-font-size;
+  line-height: 1.2;
+  padding: $input-spacing;
+  text-transform: uppercase;
+  margin-bottom: $space;
+}
+
+.button-secondary {
+  background: $button-secondary-bg;
+  border: 1px solid $button-secondary-border-color;
+  color: $button-secondary-color;
+}
+
+.button--link{
+  display: inline-block;//inline-block allows spacing from other elements, like the paragraph tag, to have have inpact.
+  text-decoration: none;
+}
+/* this is for links that need to look like buttons. The link on the NotFound page
+needs to look like the other buttons in the app.*/
+
+.button--link-text{
+  background: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+  text-transform: none;
+}
+
+.button--pill{
+  background-color: transparent;
+  border: 1px solid $button-pill-color;
+  color: $button-pill-color;
+  margin: 0 ($space / 2) 0 0; //top, right, bottom, left
+  padding: .3rem .9rem;//top and bottom are .3rem and left and right are .8rem
+  // border-radius: 5px;
+}

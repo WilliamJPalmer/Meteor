@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Links } from '../api/links';
+// import { Links } from '../api/links';//can be removed since not using here.
 import LinksList from './LinksList';
 import PrivateHeader from './PrivateHeader';
 import AddLink from './AddLink';
@@ -13,9 +13,11 @@ export default () => {
   return (
     <div>
       <PrivateHeader title="Your Links"/>
-      <HiddenFilter/>
-      <LinksList/>
-      <AddLink/>
+      <div className="page-content">
+        <HiddenFilter/>
+        <AddLink/>
+        <LinksList/>
+      </div>
     </div>
   )
 }

@@ -80,7 +80,7 @@ Meteor.methods({
 
     Links.update({_id}, {
       $set:{
-        lastVistedAt: new Date().getTime()//this will generate a new timestamp everytime link is visited.
+        lastVisitedAt: new Date().getTime()//this will generate a new timestamp everytime link is visited.
       },
       $inc: {
         visitedCount: 1//increments vistedCount by 1.

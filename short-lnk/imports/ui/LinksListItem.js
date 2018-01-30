@@ -36,23 +36,26 @@ export default class LinksListItem extends React.Component{
   renderStats(){
     const visitMessage = this.props.visitedCount === 1 ? 'visit' : 'visits';
 
-    let visitedMessage;
+    let visitedMessage = null;
+    console.log(typeof this.props.lastVisitedAt, "lastVisitedAt after setting visitedMessage to null");
+    // console.log(typeof visitedMessage, "Here is visitedMessage typeof");
+    // console.log(this.props.lastVisitedAt, "lastVisitedAt value");
 
-    if (this.props.lastVisitedAt != null){
-      visitedMessage = `(visited ${ moment(this.props.lastVistedAt).fromNow() } )`;
+    if (typeof this.props.lastVisitedAt === "number"){
+      visitedMessage = `(visited ${ moment(this.props.lastVisitedAt).fromNow() })`;
     }
 
-    return <p>{this.props.visitedCount} {visitMessage} - {visitedMessage}</p>;
+    return <p className="item__message">{this.props.visitedCount} {visitMessage} - {visitedMessage}</p>;
 
   }
   render(){
     return (
-      <div>
-        <p>{this.props.url}</p>
-        <p>{this.props.shortUrl}</p>
-        <p>{this.props.visible.toString()}</p>
+      <div className="item">
+        <h2>{this.props.url}</h2>
+        <p className="item__message">{this.props.shortUrl}</p>
         {this.renderStats()}
-        <button ref="copy" data-clipboard-text={this.props.shortUrl}>{this.state.justCopied ? 'Copied' : 'Copy'}</button>
+        <a className="button button--pill button--link"href={this.props.shortUrl} target="_blank">Visit</a>
+        <button className="button button--pill" ref="copy" data-clipboard-text={this.props.shortUrl}>{this.state.justCopied ? 'Copied' : 'Copy'}</button>
         {/*ref will allow the targeting of the button in the componentDidMount method to initialize Clipboard
           also need to give the data clipboard text attribute which is specific to the clipboard library, hence data-clipboard-text. the shortUrl in this.props.shortUrl is defined in the LinksList.js file
           in the renderLinksListItems() method.
@@ -60,7 +63,7 @@ export default class LinksListItem extends React.Component{
           It takes a value, this.state.justCopied for example, and the sees if it is truthy or falsey. The ?
           is what denaotes the comparison. The : separates the truthty, between ? and : and the falsey at the end. The values in quotes are what will be displayed.
           JSX wouldn't display true or false so use toString() for the this.props.visible*/}
-          <button onClick={() => {
+          <button className="button button--pill" onClick={() => {
             Meteor.call('links.setVisibility', this.props._id, !this.props.visible);//links.setVisibility is the method
             // name that will be called. also setting two arguemnts for the method, the argument, this.props._id, and then flip the value of the of the visible value with !this.props.visible
           }}>

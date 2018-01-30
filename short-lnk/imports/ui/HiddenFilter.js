@@ -25,8 +25,8 @@ export default class HiddenFilter extends React.Component {
   render () {
     return (
       <div>
-        <label>
-          <input type="checkbox" checked={!this.state.showVisible} onChange={(event) => {
+        <label className="checkbox">
+          <input className="checkbox__box" type="checkbox" checked={!this.state.showVisible} onChange={(event) => {
             console.log(event.target.checked);
             Session.set('showVisible', !event.target.checked);
             // setting the value of showVisible  key to reverse so if the box is checked,
